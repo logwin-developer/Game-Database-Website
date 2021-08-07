@@ -1,0 +1,25 @@
+<div class="details">
+    <div class="game-banner" *ngIf="game.screenshots?.length">
+        <img class="game-banner-img" src="{{game.screenshots[0].image}}" alt="game-banner">
+    </div>
+    <!-- <ng-template #screen>
+        <img class="game-banner-img" src="uhdub" alt="game-banner">
+    </ng-template> -->
+    <div class="game-content">
+        <div class="details-wrapper">
+            <div class="game-header">
+                <h1 class="game-header-title">{{game.title}}</h1>
+                <h2 class="game-header-release-date">Release: {{game.release_date | date}}</h2>
+                <p class="gane-header">
+                    <span *ngFor="let gner of game.genre.split(', ')">{{gner}}</span>
+                </p>
+                <div class="game-gauge">
+                    <mwl-gauge class="two" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="gameRating" [animated]="true" [color]="getColor" [animationDuration]="2">
+                    </mwl-gauge>
+                    <a class="game-gauge-lable" target="_blank" href="{{game.freetogame_profile_url}}">Metacritic</a>
+                </div>
+            </div>
+            <app-game-tabs [game]="game"></app-game-tabs>
+        </div>
+    </div>
+</div>
